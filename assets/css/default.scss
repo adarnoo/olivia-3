@@ -86,25 +86,22 @@ $fs-breakpoint-large: 1800px !default;
 }
 
 @font-face {
-  font-family: 'Arial Narrow';
-  src: url('./assets/typefaces/arial-narrow.ttf') format('truetype');
+  font-family: 'New Rail';
+  src: url('../typefaces/new-rail-normal.otf') format('truetype');
   font-display: block;
   font-weight: normal;
   font-style: normal;
 }
 
-$ts-base-pad: 10px;
-$ts-yellow: yellow;
-
 body {
   padding: 0;
   margin: 0;
-  font-family: helvetica;
+  font-family: 'New Rail';
   cursor: default;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   font-weight: normal;
   -webkit-text-stroke: 1px;
-  font-size: 16px;
+  font-size: 30px;
   overflow-x: hidden;
 
   @include max-mobile {
@@ -131,460 +128,42 @@ video {
   width: 100%;
 }
 
-html {
-  background-color: white;
-  scroll-behavior: smooth;
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  border-radius: none;
-  padding: 0;
-  margin: 0;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-.ts-page {
+.or-page {
   position: relative;
-  scroll-behavior: smooth;
 }
 
-.ts-scroll--open {
-  overflow: hidden;
-}
-
-.ts-contact {
-  background-color: yellow;
-}
-
-/* Pop Up Styling */
-
-.ts-pop-up-container {
+.or-header-container {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 30%;
-  background-color: $ts-yellow;
-  display: block;
-  z-index: 20;
-
-  @include max-tablet-landscape {
-    width: 40%;
-  }
-
-  @include max-tablet-portrait {
-    width: 45%;
-  }
-
-  @include max-mobile {
-    display: none;
-  }
-}
-
-.ts-pop-up-tab {
-  position: fixed;
-  width: 30%;
-  background-color: $ts-yellow;
-  bottom: 0;
-  right: 0;
-  z-index: 50;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @include max-tablet-landscape {
-    width: 40%;
-  }
-
-  @include max-tablet-portrait {
-    width: 45%;
-  }
-
-  @include max-mobile {
-    display: none;
-  }
-}
-
-.ts-pop-up-tab-inner {
-  padding: $ts-base-pad;
-  display: flex;
-  justify-content: space-between;
-
-  svg {
-    width: 10px;
-    margin-right: 5px;
-
-    @include max-tablet-landscape {
-      width: 8px;
-    }
-  }
-}
-
-.ts-pop-up-container--close {
-  display: none;
-}
-
-.ts-pop-up-container-inner {
-  padding: $ts-base-pad;
-}
-
-.ts-pop-up-container-close {
-  display: flex;
+  top: 0;
+  left: 0;
   width: 100%;
-  flex-direction: row-reverse;
-  padding-bottom: $ts-base-pad;
+  mix-blend-mode: difference;
+  z-index: 100;
+}
 
-  svg {
+.or-header-container-inner {
+  display: flex;
+  padding: 10px;
+  width: fit-content;
+}
+
+.or-header-container-item {
+  padding-right: 15px;
+
+  a {
+    color: white;
+
     &:hover {
-      cursor: pointer;
+      color: blue;
     }
-  }
-}
-
-.ts-pop-up-tab-text {
-  @include max-tablet-landscape {
-    -webkit-text-stroke: 0.7px;
-  }
-}
-
-/* Feed Styling */
-
-.ts-feed {
-  width: 100%;
-  padding-bottom: $ts-base-pad;
-
-  @include max-mobile {
-    padding-bottom: $ts-base-pad * 5;
-  }
-}
-
-.ts-feed-inner {
-  width: calc(100% - 40px);
-  margin: auto;
-
-  @include max-mobile {
-    width: calc(100% - 20px);
-  }
-}
-
-.ts-feed-header {
-  padding-top: $ts-base-pad * 2;
-  width: 60%;
-  font-size: 32px;
-
-  @include max-mobile {
-    width: 90%;
-    font-size: 4.5vw;
-    padding-top: $ts-base-pad;
-  }
-}
-
-.ts-feed-header-block {
-  margin-bottom: $ts-base-pad * 2;
-
-  @include max-mobile {
-    margin-bottom: $ts-base-pad;
-  }
-}
-
-.ts-feed-header-block--ident {
-  margin-left: $ts-base-pad * 4;
-}
-
-.ts-feed-header-block--title {
-  margin-top: $ts-base-pad * 12;
-  margin-bottom: $ts-base-pad / 2;
-}
-
-.ts-feed-item {
-  margin-bottom: $ts-base-pad;
-  width: 70%;
-  display: flex;
-  position: relative;
-
-  @include max-mobile {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-}
-
-.ts-feed-item--mobile {
-  display: none;
-
-  @include max-mobile {
-    display: block;
-  }
-}
-
-.ts-feed-image-container {
-  object-fit: contain;
-  overflow: hidden;
-  width: 50%;
-
-  @include max-mobile {
-    margin-bottom: 0;
-    width: 70%;
   }
 
   &:last-child {
-    padding-bottom: 0;
-  }
-
-  .ts-feed-image {
-    filter: blur(20px);
-    -webkit-filter: blur(20px);
-    margin: -5px 0 0 -5px;
-    transition: all 0.5s;
-
-    &:hover {
-      filter: blur(0px);
-      -webkit-filter: blur(0px);
-      transition: all 0.5s;
-      cursor: pointer;
-    }
+    padding-right: 0px;
   }
 }
 
-.ts-feed-desc {
+.or-feed-container {
   width: 100%;
-
-  @include max-mobile {
-    padding: $ts-base-pad / 2 0 $ts-base-pad 0;
-  }
-}
-
-.ts-feed-text {
-  font-size: 2.5vw;
-  width: 100%;
-  padding-left: $ts-base-pad * 1;
-
-  span {
-    background-color: yellow;
-  }
-
-  a {
-    text-decoration: underline;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  @include max-mobile {
-    font-size: 3vw;
-    padding-left: 0;
-  }
-}
-
-.ts-feed-tags {
-  margin-top: $ts-base-pad;
-  padding-left: $ts-base-pad;
-
-  span {
-    background: linear-gradient(to right, rgb(100, 100, 100) 0%, rgba(0, 0, 0, 0) 55%, rgb(190, 190, 190) 100%);
-    animation-name: colour-transition;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    background-color: white;
-    padding: 0 $ts-base-pad / 2;
-    margin-right: $ts-base-pad / 2;
-
-    @include max-mobile {
-      padding: 0;
-    }
-  }
-
-  @include max-mobile {
-    margin-top: $ts-base-pad / 2;
-    padding-left: 0;
-    font-size: 3vw;
-  }
-}
-
-/* Slider Styling */
-
-.ts-slider-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - $ts-base-pad * 4);
-  background-color: white;
-  z-index: 50;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: $ts-base-pad * 2 0;
-
-  @include max-mobile {
-    height: 100vh;
-    padding: 0;
-  }
-}
-
-.ts-slider-container {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-
-  @include max-tablet-landscape {
-    width: calc(100% - $ts-base-pad * 10);
-  }
-
-  @include max-mobile {
-    width: calc(100% - $ts-base-pad * 4);
-    margin-top: -10vh;
-  }
-}
-
-.ts-slider {
-  width: 100%;
-}
-
-.ts-slide {
-  display: flex !important;
-  height: 100% !important;
-  align-items: center;
-}
-
-.slick-slide {
-  img {
-    display: block;
-    width: unset;
-    height: unset;
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0 auto;
-
-    @include max-mobile {
-      margin: -5vh auto 0 auto;
-    }
-  }
-}
-
-.slick-slide {
-  transition: all ease-in-out .8s;
-}
-
-.ts-slider-close {
-  position: fixed;
-  top: $ts-base-pad * 2;
-  left: $ts-base-pad * 2;
-  z-index: 100;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-
-.ts-next {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  z-index: 50;
-  opacity: 0;
-
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-
-  svg {
-    position: fixed;
-    right: $ts-base-pad * 2;
-  }
-
-  @include max-mobile {
-    display: block;
-    justify-content: flex-start;
-    align-items: flex-start;
-    opacity: 1;
-    width: fit-content;
-    top: $ts-base-pad * 2;
-    right: $ts-base-pad * 2;
-  }
-}
-
-.ts-prev {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  z-index: 50;
-  opacity: 0;
-
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-
-  svg {
-    position: fixed;
-    left: $ts-base-pad * 2;
-
-    @include max-mobile {
-      position: absolute;
-      left: 0;
-    }
-  }
-
-  @include max-tablet-landscape {
-    width: 50%
-  }
-
-  @include max-mobile {
-    display: block;
-    justify-content: flex-start;
-    align-items: flex-start;
-    opacity: 1;
-    width: fit-content;
-    top: $ts-base-pad * 2;
-    left: calc(100% - 100px);
-  }
-}
-
-.ts-annotation-container {
-  position: fixed;
-  bottom: $ts-base-pad * 2;
-  left: $ts-base-pad * 2;
-  z-index: 50;
-  list-style: none;
-
-  @include max-mobile {
-    bottom: $ts-base-pad * 4;
-  }
-
-  span {
-    background-color: $ts-yellow;
-    display: inline;
-  }
-}
-
-.ts-feed-top {
-  display: none;
-  font-size: 4.5vw;
-  padding-top: $ts-base-pad * 15;
-
-  @include max-mobile {
-    display: block;
-  }
+  z-index: 0;
 }
