@@ -12,7 +12,7 @@ body {
   cursor: default;
   letter-spacing: 2px;
   font-weight: normal;
-  -webkit-text-stroke: 1px;
+  -webkit-text-stroke: 0.5px;
   font-size: 30px;
   overflow-x: hidden;
 }
@@ -21,10 +21,6 @@ body {
     letter-spacing: 2px;
     -webkit-text-stroke: 0.5px;
   }
-}
-
-html {
-  background-color: lightgrey;
 }
 
 a {
@@ -49,13 +45,76 @@ video {
   position: relative;
 }
 
+.or-scroll {
+  overflow: hidden;
+}
+
+.or-scroll--active {
+  overflow: auto;
+}
+
+.or-splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.or-splash-container--close {
+  display: none;
+}
+
+.or-splash-image {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  filter: blur(1.5em);
+  -webkit-filter: blur(1.5em);
+}
+
+.or-splash-text {
+  font-size: 10vw;
+  mix-blend-mode: difference;
+  color: yellow;
+}
+.or-splash-text:hover {
+  cursor: pointer;
+}
+
 .or-header-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 100;
+}
+.or-header-container a {
+  color: black;
+}
+.or-header-container a:hover {
+  color: blue;
+}
+
+.or-header-container--home {
   mix-blend-mode: difference;
   z-index: 100;
+  display: none;
+}
+.or-header-container--home a {
+  color: white;
+}
+.or-header-container--home a:hover {
+  color: blue;
+}
+
+.or-header-container--show {
+  display: block;
 }
 
 .or-header-container-inner {
@@ -66,21 +125,54 @@ video {
 }
 
 .or-header-container-item {
-  padding-right: 15px;
-}
-.or-header-container-item a {
-  color: white;
-}
-.or-header-container-item a:hover {
-  color: blue;
+  padding-right: 10px;
 }
 .or-header-container-item:last-child {
+  padding-right: 0px;
+}
+
+.or-page-nav-container {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  z-index: 100;
+}
+.or-page-nav-container a:hover {
+  color: blue;
+}
+
+.or-page-nav-container-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.or-page-nav-container-item {
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+.or-page-nav-container-item a {
+  color: black;
+}
+.or-page-nav-container-item:last-child {
   padding-right: 0px;
 }
 
 .or-feed-container {
   width: 100%;
   z-index: 0;
+}
+
+.or-image-feed-container {
+  padding-top: 300px;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.or-image-feed-item {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=default.css.map */
